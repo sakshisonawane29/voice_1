@@ -68,11 +68,3 @@ Before running the code, ensure you have the following dependencies installed:
 - Modify the system prompt in the `AIVoiceAssistant` class to change the assistant's behavior
 - Update the hotel knowledge base (`hotel.txt`) with current information as needed
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Special thanks to the developers of faster_whisper, Hugging Face, and Qdrant
-- Built with LlamaIndex framework for efficient RAG implementation

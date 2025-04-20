@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversation Recordings - Metro Luxe Hotel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .recordings-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        .recording-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .recording-files {
+            margin-top: 1rem;
+        }
+        audio {
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">Metro Luxe Hotel</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/rooms">Rooms</a>
+            <a href="/facilities">Facilities</a>
+            <a href="/contact">Contact</a>
+            <a href="/recordings">Recordings</a>
+        </div>
+    </nav>
+
+    <div class="recordings-container">
+        <h1>Conversation Recordings</h1>
+        {% for recording in recordings %}
+        <div class="recording-item">
+            <h2>Conversation from {{ recording.timestamp }}</h2>
+            <div class="recording-files">
+                {% if 'guest_input.wav' in recording.files %}
+                <h3>Guest Input:</h3>
+                <audio controls>
+                    <source src="{{ url_for('static', filename='recordings/' + recording.timestamp + '/guest_input.wav') }}" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                {% endif %}
+
+                {% if 'assistant_response.mp3' in recording.files %}
+                <h3>Assistant Response:</h3>
+                <audio controls>
+                    <source src="{{ url_for('static', filename='recordings/' + recording.timestamp + '/assistant_response.mp3') }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                {% endif %}
+
+                {% if 'conversation.txt' in recording.files %}
+                <h3>Transcript:</h3>
+                <pre>{{ get_transcript(recording.timestamp) }}</pre>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html> 

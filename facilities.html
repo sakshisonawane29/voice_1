@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facilities - Metro Luxe Hotel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .facilities-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        
+        .facility-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .facility-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .facility-details {
+            padding: 1.5rem;
+        }
+        
+        .facility-details h2 {
+            margin-bottom: 1rem;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">Metro Luxe Hotel</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/rooms">Rooms</a>
+            <a href="/facilities">Facilities</a>
+            <a href="/contact">Contact</a>
+            <a href="/gallery">Gallery</a>
+        </div>
+    </nav>
+
+    <div class="facilities-container">
+        <h1>Our Premium Facilities</h1>
+        
+        <div class="facility-grid">
+            <div class="facility-card">
+                <img src="{{ url_for('static', filename='images/facilities/restaurant.jpg') }}" alt="Restaurant" class="facility-image">
+                <div class="facility-details">
+                    <h2>Fine Dining Restaurant</h2>
+                    <p>Experience culinary excellence at our restaurant featuring international cuisine.</p>
+                    <p>Opening Hours: 7:00 AM - 11:00 PM</p>
+                </div>
+            </div>
+
+            <div class="facility-card">
+                <img src="{{ url_for('static', filename='images/facilities/pool.jpg') }}" alt="Swimming Pool" class="facility-image">
+                <div class="facility-details">
+                    <h2>Swimming Pool</h2>
+                    <p>Relax in our temperature-controlled infinity pool with panoramic city views.</p>
+                    <p>Opening Hours: 7:00 AM - 9:00 PM</p>
+                </div>
+            </div>
+
+            <div class="facility-card">
+                <img src="{{ url_for('static', filename='images/facilities/spa.jpg') }}" alt="Spa" class="facility-image">
+                <div class="facility-details">
+                    <h2>Luxury Spa</h2>
+                    <p>Rejuvenate your senses with our premium spa treatments.</p>
+                    <p>Opening Hours: 10:00 AM - 8:00 PM</p>
+                </div>
+            </div>
+
+            <div class="facility-card">
+                <img src="{{ url_for('static', filename='images/facilities/gym.jpg') }}" alt="Fitness Center" class="facility-image">
+                <div class="facility-details">
+                    <h2>Fitness Center</h2>
+                    <p>Stay fit with state-of-the-art equipment and personal trainers.</p>
+                    <p>Opening Hours: 6:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+
+            <div class="facility-card">
+                <img src="{{ url_for('static', filename='images/facilities/conference.jpg') }}" alt="Conference Room" class="facility-image">
+                <div class="facility-details">
+                    <h2>Conference Facilities</h2>
+                    <p>Modern meeting rooms equipped with latest technology.</p>
+                    <p>Available 24/7 with prior booking</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ai-assistant">
+        <div class="chat-container" id="chatContainer"></div>
+        <div class="input-container">
+            <input type="text" id="textInput" placeholder="Ask about our facilities...">
+            <button id="sendText">Send</button>
+            <button id="startVoice">🎤</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/assistant.js') }}"></script>
+</body>
+</html> 

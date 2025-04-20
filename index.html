@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Luxe Hotel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url("{{ url_for('static', filename='images/hotel-exterior.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .welcome-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: #f8f9fa;
+        }
+        
+        .featured-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .featured-image {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .featured-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">Metro Luxe Hotel</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/rooms">Rooms</a>
+            <a href="/facilities">Facilities</a>
+            <a href="/contact">Contact</a>
+            <a href="/gallery">Gallery</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Welcome to Metro Luxe Hotel</h1>
+        <p>Experience luxury in the heart of Metro City</p>
+    </header>
+
+    <section class="welcome-section">
+        <h2>Discover Our Hotel</h2>
+        <p>Experience unparalleled luxury and comfort at Metro Luxe Hotel</p>
+        
+        <div class="featured-images">
+            <img src="{{ url_for('static', filename='images/hotel-lobby.jpg') }}" alt="Hotel Lobby" class="featured-image">
+            <img src="{{ url_for('static', filename='images/rooms/suite.jpg') }}" alt="Luxury Suite" class="featured-image">
+            <img src="{{ url_for('static', filename='images/facilities/pool.jpg') }}" alt="Swimming Pool" class="featured-image">
+        </div>
+    </section>
+
+    <div class="ai-assistant">
+        <div class="chat-container" id="chatContainer"></div>
+        <div class="voice-container">
+            <button id="startVoice" class="voice-button">🎤 Ask Me Anything</button>
+            <div id="voiceStatus">Click the microphone to speak</div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/voice-assistant.js') }}"></script>
+</body>
+</html> 

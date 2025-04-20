@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Metro Luxe Hotel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">Metro Luxe Hotel</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/rooms">Rooms</a>
+            <a href="/facilities">Facilities</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        
+        <div class="contact-info">
+            <h2>Location</h2>
+            <p>Downtown, Metro City</p>
+            
+            <h2>Phone</h2>
+            <p>+1 234 567 8900</p>
+            
+            <h2>Email</h2>
+            <p>info@metroluxehotel.com</p>
+            
+            <h2>Check-in/Check-out</h2>
+            <p>Check-in: 2:00 PM</p>
+            <p>Check-out: 12:00 PM</p>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send us a message</h2>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="ai-assistant">
+        <div class="chat-container" id="chatContainer"></div>
+        <div class="input-container">
+            <input type="text" id="textInput" placeholder="Ask for contact information...">
+            <button id="sendText">Send</button>
+            <button id="startVoice">🎤</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/assistant.js') }}"></script>
+</body>
+</html> 
